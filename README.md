@@ -1,5 +1,17 @@
-> [!IMPORTANT]
-> This package is actively in development, and breaking changes may occur.
+> [!WARNING]
+> **This project is archived and no longer maintained.**
+>
+> Nodeology was built on `langgraph` 0.2.x to give researchers a prompt-template-driven node abstraction over LangGraph's state machine. Since then, LangGraph has evolved substantially (0.6.x and beyond) — the new [Functional API](https://langchain-ai.github.io/langgraph/concepts/functional_api/) (`@task` / `@entrypoint`), native [interrupts](https://langchain-ai.github.io/langgraph/concepts/human_in_the_loop/) for human-in-the-loop, durable execution, and improved checkpointers now cover most of what Nodeology was created to simplify.
+>
+> More fundamentally, foundation models have become substantially more capable since this project began. For many tasks that previously required a hand-designed graph of nodes with deterministic control flow, modern models can now plan, decide, and execute end-to-end on their own — given a clear objective and a set of tools. The need for an explicit, author-it-yourself state machine has shrunk accordingly, and agent-style approaches (where the model drives the loop) are often simpler and more robust than a fixed graph.
+>
+> **For new projects**, we recommend:
+> - **Agent SDKs** when you want the model to drive the loop with tool use — these handle planning, tool calling, and multi-turn execution out of the box:
+>   - [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) — lightweight Python framework for building agentic workflows with tools, handoffs, and guardrails.
+>   - [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview) — Anthropic's SDK for building agents with Claude, with first-class support for tool use, sub-agents, and long-horizon tasks.
+> - **LangGraph** (latest) when you genuinely need explicit control flow, durability, or multi-agent coordination. The [Functional API](https://langchain-ai.github.io/langgraph/concepts/functional_api/) offers a similarly declarative experience to Nodeology's `Node` abstraction.
+>
+> **Existing users**: this repo will continue to install and run against `langgraph<=0.2.45` (see `requirements.txt`), but no further updates, bug fixes, or feature work are planned. Downstream projects such as [PEAR](https://arxiv.org/abs/2410.09034) and [AutoScriptCopilot](https://github.com/xyin-anl/AutoScriptCopilot) remain functional with the pinned versions.
 
 <div align="center">
   <img src="assets/logo.jpg" alt="Nodeology Logo" width="600"/>
